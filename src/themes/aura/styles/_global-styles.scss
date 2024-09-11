@@ -1,0 +1,37 @@
+// Add any global css for the theme here
+
+// imports the base global style
+@import '../../../styles/_global-styles.scss';
+
+// body {
+//     background: url(../assets/images/global_wrapper_middle.jpg) repeat-x center top #fff;
+// }
+html *
+{
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #1F3165;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+a {
+    color: #365594;
+}
+
+.btn-primary {
+    background-color: #1F3165;
+    border-color: #1F3165;
+    color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.btn-primary.dropdown-toggle {
+    background-color: #f6ae64;
+    border-color: #f6ae64;
+    color: #fff;
+}
+
+ds-type-badge {
+    display: none;
+}

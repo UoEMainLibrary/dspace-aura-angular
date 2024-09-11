@@ -2764,6 +2764,8 @@
 
   "item.page.uri": "URI",
 
+  "item.page.doi": "DOI",
+
   "item.page.bitstreams.view-more": "Show more",
 
   "item.page.bitstreams.collapse": "Collapse",
@@ -4176,9 +4178,9 @@
 
   "repository.image.logo": "Repository logo",
 
-  "repository.title": "DSpace Repository",
+  "repository.title": "AURA",
 
-  "repository.title.prefix": "DSpace Repository :: ",
+  "repository.title.prefix": "AURA :: ",
 
   "resource-policies.add.button": "Add",
 

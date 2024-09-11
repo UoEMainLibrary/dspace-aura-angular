@@ -11,6 +11,7 @@ import { hasValue } from '../shared/empty.util';
 import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end-user-agreement.component';
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import {
+  ACCESSIBILITY_PATH,
   COAR_NOTIFY_SUPPORT,
   END_USER_AGREEMENT_PATH,
   FEEDBACK_PATH,
@@ -18,6 +19,8 @@ import {
 } from './info-routing-paths';
 import { NotifyInfoComponent } from './notify-info/notify-info.component';
 import { ThemedPrivacyComponent } from './privacy/themed-privacy.component';
+import { ThemedAccessibilityComponent } from './accessibility/themed-accessibility.component';
+
 
 
 export const ROUTES: Routes = [
@@ -52,4 +55,11 @@ export const ROUTES: Routes = [
       breadcrumbKey: 'info.coar-notify-support',
     },
   } : undefined,
+  {
+  path: ACCESSIBILITY_PATH,
+    component: ThemedAccessibilityComponent,
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.accessibility.title', breadcrumbKey: 'info.accessibility' },
+    // canActivate: [feedbackGuard],
+  }
 ].filter((route: Route) => hasValue(route));
