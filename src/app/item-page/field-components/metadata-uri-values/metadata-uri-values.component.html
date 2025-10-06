@@ -1,5 +1,7 @@
 <ds-metadata-field-wrapper [label]="label | translate">
-    <a class="dont-break-out" *ngFor="let mdValue of mdValues; let last=last;" [href]="mdValue.value" [target]="hasInternalLink(mdValue.value) ? '_self' : '_blank'">
-       {{ linktext || mdValue.value }}<span *ngIf="!last" [innerHTML]="separator"></span>
-    </a>
+    <div *ngFor="let mdValue of mdValues; let last=last;">
+        <a class="dont-break-out" *ngIf="label === 'item.page.doi'" [href]="'https://doi.org/' + mdValue.value" [target]="hasInternalLink(mdValue.value) ? '_self' : '_blank'">
+            {{ linktext || mdValue.value }}<span *ngIf="!last" [innerHTML]="separator"></span>
+        </a>
+    </div>
 </ds-metadata-field-wrapper>
