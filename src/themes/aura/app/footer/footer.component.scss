@@ -27,13 +27,13 @@
         padding-bottom: 1rem;
         text-align: center;
       }
-      button.top-of-page {
+      button.footer-button {
         margin-right: 20px;
         border: none;
         background-color: transparent;
         color: #365594;
     }
-    button.top-of-page:hover {
+    button.footer-button:hover {
         color: #124154;
         text-decoration: underline;
     }
@@ -53,7 +53,6 @@
         padding-bottom: 1rem;
       }
       .footer-logo {
-        // width: 15rem;
         margin-right: 20px;
       }
       .footer-divider{
@@ -61,6 +60,11 @@
       }
       .footer-socials p {
         text-align: right;
+      }
+
+      .verticle-container {
+        height: 200px;
+        position: relative;
       }
   }
 
