@@ -2180,6 +2180,14 @@
 
   "info.coar-notify-support.breadcrumbs": "COAR Notify Support",
 
+  // custom
+  "info.accessibility.breadcrumbs": "Accessibility Statement",
+
+  "info.accessibility.head": "Accessibility Statement",
+
+  "info.accessibility.title": "Accessibility Statement",
+  // custom end
+
   "item.alerts.private": "This item is non-discoverable",
 
   "item.alerts.withdrawn": "This item has been withdrawn",
