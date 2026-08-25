@@ -2151,7 +2151,7 @@
 
   "home.top-level-communities.help": "Select a community to browse its collections.",
 
-  "info.accessibility-settings.breadcrumbs": "Accessibility settings",
+  "info.accessibility-settings.breadcrumbs": "Accessibility Statement",
 
   "info.accessibility-settings.cookie-warning": "Saving the accessibility settings is currently not possible. Either log in to save the settings in user data, or accept the 'Accessibility Settings' cookie using the 'Cookie Settings' menu at the bottom of the page. Once the cookie has been accepted, you can reload the page to remove this message.",
 
@@ -2859,6 +2859,8 @@
 
   "item.page.uri": "URI",
 
+  "item.page.doi": "DOI",
+
   "item.page.bitstreams.view-more": "Show more",
 
   "item.page.bitstreams.collapse": "Collapse",
@@ -3277,7 +3279,7 @@
 
   "login.form.forgot-password": "Have you forgotten your password?",
 
-  "login.form.header": "Please log in to DSpace",
+  "login.form.header": "Please log in to AURA",
 
   "login.form.new-user": "New user? Click here to register.",
 
@@ -3977,9 +3979,9 @@
 
   "profile.card.accessibility.content": "Accessibility settings can be configured on the accessibility settings page.",
 
-  "profile.card.accessibility.header": "Accessibility",
+  "profile.card.accessibility.header": "Accessibility Statement",
 
-  "profile.card.accessibility.link": "Go to Accessibility Settings Page",
+  "profile.card.accessibility.link": "Go to Accessibility Statement",
 
   "profile.card.identify": "Identify",
 
@@ -4287,11 +4289,11 @@
 
   "relationships.isFundingAgencyOf.OrgUnit": "Funder",
 
-  "repository.image.logo": "Repository logo",
+  "repository.image.logo": "University of Aberdeen logo",
 
-  "repository.title": "DSpace Repository",
+  "repository.title": "AURA",
 
-  "repository.title.prefix": "DSpace Repository :: ",
+  "repository.title.prefix": "AURA :: ",
 
   "resource-policies.add.button": "Add",
 

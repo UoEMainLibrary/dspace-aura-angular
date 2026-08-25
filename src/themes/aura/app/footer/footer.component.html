@@ -1,0 +1,125 @@
+<footer class="text-lg-start">
+    <div *ngIf="showTopFooter" class="top-footer">
+        <!-- Grid container -->
+        <div class=" container p-4">
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase">Footer Content</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                        <a routerLink="./" class="">Lorem ipsum</a>
+                        </li>
+                        <li>
+                        <a routerLink="./" class="">Ut facilisis</a>
+                        </li>
+                        <li>
+                        <a routerLink="./" class="">Aenean sit</a>
+                        </li>
+                    </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase">Footer Content</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                        <a routerLink="./" class="">Suspendisse potenti</a>
+                        </li>
+                    </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Footer Content</h5>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                        molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                        voluptatem veniam, est atque cumque eum delectus sint!
+                    </p>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+    <!-- Grid container -->
+
+<!-- Copyright -->
+<div class="top-footer p-1 d-flex justify-content-center align-items-center text-white">
+    <div class="container">
+        <div class="row first-footer">
+            <button (click)="onEdit()" title="Top of page" class="footer-button">
+                <i class="fa fa-angle-double-up" aria-hidden="true"></i> Top of Page
+            </button>
+            <button onclick="location.href='/'" title="AURA home" class="footer-button">
+                AURA Home
+            </button>
+            <button onclick="location.href='/info/accessibility'" title="Accessibility Statement" class="footer-button">
+                Accessibility
+            </button>
+            <button onclick="location.href='https://abdn.elsevierpure.com/'" title="PURE" class="footer-button">
+                PURE
+            </button>
+            <button onclick="location.href='https://www.abdn.ac.uk/library'" title="Library Services" class="footer-button">
+                Library Services
+            </button>
+            <button onclick="location.href='https://www.abdn.ac.uk/it/service-portfolio/sc-systems-aura.php#repository-takedown'" title="Take-Down Notice" class="footer-button">
+                Take-Down <br>Notice
+            </button>
+            <button onclick="location.href='/info/feedback'" title="Feedback page" class="footer-button">
+                Send Feedback
+            </button>
+            <button onclick="location.href='mailto:aura-manager@abdn.ac.uk'" title="Contact Us" class="footer-button">
+                Contact Us
+            </button>
+        </div>
+    </div>
+</div>
+<div class="p-1 d-flex align-items-center">
+    <div class="container">
+        <div class="second-footer">
+            <div>
+                <a class="my-2" routerLink="/home">
+                    <img class="footer-logo" src="assets/aura/images/unilogo3.gif" [attr.alt]="'menu.header.image.logo' | translate"/>
+                </a>
+            </div>
+            <div>
+                <p>The Sir Duncan Rice Library</p>
+                <p>University of Aberdeen</p>
+                <p>Bedford Road</p>
+                <p>Aberdeen</p>
+                <p>AB24 3AA</p>
+                <br>
+                <p>Tel: +44 (0)1224 273330</p>
+                <p>Email: <a href="mailto:library@abdn.ac.uk" title="Email Library, Special Collections and Museums">library&#64;abdn.ac.uk</a></p>
+            </div>
+            <div class="footer-divider"></div> 
+            <div class="footer-socials">
+                <p>Share and keep up to date</p>
+                <br>
+                <p>
+                    <a href="https://www.facebook.com/biblio.teque?fref=ts">
+                        <img class="png" title="Facebook" alt="Facebook" src="assets/aura/images/facebook_32.png">
+                    </a>
+                    <a href="http://twitter.com/aberdeenunilib/">
+                        <img class="png" title="Facebook" alt="Twitter" src="assets/aura/images/twitter_32.png">
+                    </a>
+                    <a href="http://aberdeenunilib.wordpress.com">
+                        <img class="png" title="Facebook" alt="Wordpress" src="assets/aura/images/wordpress_32.png">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright -->
+
+</footer>
