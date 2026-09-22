@@ -20,6 +20,6 @@ import { BrowseEntryListElementComponent as BaseComponent } from '../../../../..
   standalone: true,
   imports: [NgIf, RouterLink, AsyncPipe],
 })
-@listableObjectComponent(BrowseEntry, ViewMode.ListElement, Context.Any, 'custom')
+@listableObjectComponent(BrowseEntry, ViewMode.ListElement, Context.Any, 'aura')
 export class BrowseEntryListElementComponent extends BaseComponent {
 }

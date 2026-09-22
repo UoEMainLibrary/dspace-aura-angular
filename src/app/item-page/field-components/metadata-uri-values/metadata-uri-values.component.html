@@ -1,5 +1,18 @@
 <ds-metadata-field-wrapper [label]="label | translate">
-    <a class="dont-break-out" *ngFor="let mdValue of mdValues; let last=last;" [href]="mdValue.value" [target]="hasInternalLink(mdValue.value) ? '_self' : '_blank'" role="link" tabindex="0">
-       {{ linktext || mdValue.value }}<span *ngIf="!last" [innerHTML]="separator"></span>
-    </a>
+    <!--
+    Customized to check if the value is a handle or a doi and link accordingly. 
+    If it is a handle, it will link to the handle url, if it is a doi, it will link to the doi url. 
+    If it is neither, it will link to the value as is.
+    @author: Ben Parkes
+    -->
+    <div *ngFor="let mdValue of mdValues; let last=last;">
+         <a *ngIf="mdValue.value.includes('https://hdl.handle.net/'); else doi" class="dont-break-out" [href]="mdValue.value" [target]="hasInternalLink(mdValue.value) ? '_self' : '_blank'" role="link" tabindex="0">
+            {{ linktext || mdValue.value }}<span *ngIf="!last" [innerHTML]="separator"></span>
+        </a>
+        <ng-template #doi>
+            <a class="dont-break-out" [href]="'https://doi.org/' + mdValue.value" [target]="hasInternalLink(mdValue.value) ? '_self' : '_blank'" role="link" tabindex="0">
+                {{ linktext || mdValue.value }}<span *ngIf="!last" [innerHTML]="separator"></span>
+            </a>
+        </ng-template>
+    </div>
 </ds-metadata-field-wrapper>

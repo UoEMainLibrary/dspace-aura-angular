@@ -19,8 +19,9 @@ import { FooterComponent as BaseComponent } from '../../../../app/footer/footer.
   imports: [NgIf, RouterLink, AsyncPipe, DatePipe, TranslateModule],
 })
 export class FooterComponent extends BaseComponent {
-  
+
   onEdit(){
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
+  
 }

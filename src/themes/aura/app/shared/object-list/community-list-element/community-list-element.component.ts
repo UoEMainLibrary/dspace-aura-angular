@@ -8,7 +8,7 @@ import { ViewMode } from '../../../../../../app/core/shared/view-mode.model';
 import { listableObjectComponent } from '../../../../../../app/shared/object-collection/shared/listable-object/listable-object.decorator';
 import { CommunityListElementComponent as BaseComponent } from '../../../../../../app/shared/object-list/community-list-element/community-list-element.component';
 
-@listableObjectComponent(Community, ViewMode.ListElement, Context.Any, 'custom')
+@listableObjectComponent(Community, ViewMode.ListElement, Context.Any, 'aura')
 
 @Component({
   selector: 'ds-community-list-element',
