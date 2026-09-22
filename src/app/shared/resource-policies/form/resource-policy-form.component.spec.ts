@@ -21,11 +21,15 @@ import {
 } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DYNAMIC_FORM_CONTROL_MAP_FN } from '@ng-dynamic-forms/core';
+import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { getTestScheduler } from 'jasmine-marbles';
 import { NgxMaskModule } from 'ngx-mask';
-import { of as observableOf } from 'rxjs';
+import {
+  Observable,
+  of as observableOf,
+} from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
 import {
@@ -45,6 +49,7 @@ import { ResourcePolicy } from '../../../core/resource-policy/models/resource-po
 import { RESOURCE_POLICY } from '../../../core/resource-policy/models/resource-policy.resource-type';
 import { SubmissionObjectDataService } from '../../../core/submission/submission-object-data.service';
 import { SubmissionService } from '../../../submission/submission.service';
+import { BtnDisabledDirective } from '../../btn-disabled.directive';
 import {
   dateToISOFormat,
   stringToNgbDateStruct,
@@ -56,6 +61,8 @@ import { DsDynamicTypeBindRelationService } from '../../form/builder/ds-dynamic-
 import { FormBuilderService } from '../../form/builder/form-builder.service';
 import { FormComponent } from '../../form/form.component';
 import { FormService } from '../../form/form.service';
+import { LiveRegionService } from '../../live-region/live-region.service';
+import { getLiveRegionServiceStub } from '../../live-region/live-region.service.stub';
 import { getMockFormService } from '../../mocks/form-service.mock';
 import { getMockRequestService } from '../../mocks/request.service.mock';
 import { RouterMock } from '../../mocks/router.mock';
@@ -216,6 +223,7 @@ describe('ResourcePolicyFormComponent test suite', () => {
         ResourcePolicyFormComponent,
         TestComponent,
         NgxMaskModule.forRoot(),
+        BtnDisabledDirective,
       ],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteStub },
@@ -235,6 +243,8 @@ describe('ResourcePolicyFormComponent test suite', () => {
         { provide: APP_DATA_SERVICES_MAP, useValue: {} },
         { provide: DYNAMIC_FORM_CONTROL_MAP_FN, useValue: dsDynamicFormControlMapFn },
         provideMockStore({}),
+        provideMockActions(() => new Observable<any>()),
+        { provide: LiveRegionService, useValue: getLiveRegionServiceStub() },
       ],
       schemas: [
         NO_ERRORS_SCHEMA,
@@ -426,7 +436,8 @@ describe('ResourcePolicyFormComponent test suite', () => {
 
       const depositBtn: any = fixture.debugElement.query(By.css('.btn-primary'));
 
-      expect(depositBtn.nativeElement.disabled).toBeFalsy();
+      expect(depositBtn.nativeElement.getAttribute('aria-disabled')).toBe('false');
+      expect(depositBtn.nativeElement.classList.contains('disabled')).toBeFalse();
     });
 
     it('should emit submit event', () => {
@@ -480,7 +491,8 @@ describe('ResourcePolicyFormComponent test suite', () => {
 
       const depositBtn: any = fixture.debugElement.query(By.css('.btn-primary'));
 
-      expect(depositBtn.nativeElement.disabled).toBeTruthy();
+      expect(depositBtn.nativeElement.getAttribute('aria-disabled')).toBe('true');
+      expect(depositBtn.nativeElement.classList.contains('disabled')).toBeTrue();
     });
 
   });
