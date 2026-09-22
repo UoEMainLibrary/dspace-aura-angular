@@ -2151,7 +2151,7 @@
 
   "home.top-level-communities.help": "Select a community to browse its collections.",
 
-  "info.accessibility-settings.breadcrumbs": "Accessibility settings",
+  "info.accessibility-settings.breadcrumbs": "Accessibility Statement",
 
   "info.accessibility-settings.cookie-warning": "Saving the accessibility settings is currently not possible. Either log in to save the settings in user data, or accept the 'Accessibility Settings' cookie using the 'Cookie Settings' menu at the bottom of the page. Once the cookie has been accepted, you can reload the page to remove this message.",
 
@@ -2242,14 +2242,6 @@
   "info.coar-notify-support.title": "COAR Notify Support",
 
   "info.coar-notify-support.breadcrumbs": "COAR Notify Support",
-
-  // custom
-  "info.accessibility.breadcrumbs": "Accessibility Statement",
-
-  "info.accessibility.head": "Accessibility Statement",
-
-  "info.accessibility.title": "Accessibility Statement",
-  // custom end
 
   "item.alerts.private": "This item is non-discoverable",
 
@@ -3315,7 +3307,7 @@
 
   "menu.header.admin": "Management",
 
-  "menu.header.image.logo": "University of Aberdeen logo",
+  "menu.header.image.logo": "Repository logo",
 
   "menu.header.admin.description": "Management menu",
 
@@ -3987,9 +3979,9 @@
 
   "profile.card.accessibility.content": "Accessibility settings can be configured on the accessibility settings page.",
 
-  "profile.card.accessibility.header": "Accessibility",
+  "profile.card.accessibility.header": "Accessibility Statement",
 
-  "profile.card.accessibility.link": "Go to Accessibility Settings Page",
+  "profile.card.accessibility.link": "Go to Accessibility Statement",
 
   "profile.card.identify": "Identify",
 
