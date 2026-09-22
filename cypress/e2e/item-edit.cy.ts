@@ -13,10 +13,20 @@ beforeEach(() => {
 
 describe('Edit Item > Edit Metadata tab', () => {
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="metadata"]').should('be.visible');
     cy.get('a[data-test="metadata"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="metadata"]').should('be.visible');
+    cy.get('a[data-test="metadata"]').should('have.class', 'active');
 
     // <ds-edit-item-page> tag must be loaded
     cy.get('ds-edit-item-page').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // wait for all the ds-dso-edit-metadata-value components to be rendered
     cy.get('ds-dso-edit-metadata-value div[role="row"]').each(($row: HTMLDivElement) => {
@@ -24,17 +34,36 @@ describe('Edit Item > Edit Metadata tab', () => {
     });
 
     // Analyze <ds-edit-item-page> for accessibility issues
-    testA11y('ds-edit-item-page');
+    testA11y('ds-edit-item-page',
+            {
+              rules: {
+                // Disable flakey "aria-required-children" test. While this test passes when run locally,
+                // in GitHub CI it will return random failures roughly 1/3 of the time saying that the
+                // "tablist" doesn't contain required "tab" elements, even though they do exist.
+                'aria-required-children': { enabled: false },
+              },
+            } as Options,
+    );
   });
 });
 
 describe('Edit Item > Status tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="status"]').should('be.visible');
     cy.get('a[data-test="status"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="status"]').should('be.visible');
+    cy.get('a[data-test="status"]').should('have.class', 'active');
 
     // <ds-item-status> tag must be loaded
     cy.get('ds-item-status').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze for accessibility issues
     testA11y('ds-item-status');
@@ -44,11 +73,20 @@ describe('Edit Item > Status tab', () => {
 describe('Edit Item > Bitstreams tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="bitstreams"]').should('be.visible');
     cy.get('a[data-test="bitstreams"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="bitstreams"]').should('be.visible');
+    cy.get('a[data-test="bitstreams"]').should('have.class', 'active');
 
     // <ds-item-bitstreams> tag must be loaded
     cy.get('ds-item-bitstreams').should('be.visible');
 
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
     // Table of item bitstreams must also be loaded
     cy.get('div.item-bitstreams').should('be.visible');
 
@@ -68,10 +106,20 @@ describe('Edit Item > Bitstreams tab', () => {
 describe('Edit Item > Curate tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="curate"]').should('be.visible');
     cy.get('a[data-test="curate"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="curate"]').should('be.visible');
+    cy.get('a[data-test="curate"]').should('have.class', 'active');
 
     // <ds-item-curate> tag must be loaded
     cy.get('ds-item-curate').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze for accessibility issues
     testA11y('ds-item-curate');
@@ -81,10 +129,20 @@ describe('Edit Item > Curate tab', () => {
 describe('Edit Item > Relationships tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="relationships"]').should('be.visible');
     cy.get('a[data-test="relationships"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="relationships"]').should('be.visible');
+    cy.get('a[data-test="relationships"]').should('have.class', 'active');
 
     // <ds-item-relationships> tag must be loaded
     cy.get('ds-item-relationships').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze for accessibility issues
     testA11y('ds-item-relationships');
@@ -94,10 +152,20 @@ describe('Edit Item > Relationships tab', () => {
 describe('Edit Item > Version History tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="versionhistory"]').should('be.visible');
     cy.get('a[data-test="versionhistory"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="versionhistory"]').should('be.visible');
+    cy.get('a[data-test="versionhistory"]').should('have.class', 'active');
 
     // <ds-item-version-history> tag must be loaded
     cy.get('ds-item-version-history').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze for accessibility issues
     testA11y('ds-item-version-history');
@@ -107,10 +175,20 @@ describe('Edit Item > Version History tab', () => {
 describe('Edit Item > Access Control tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="access-control"]').should('be.visible');
     cy.get('a[data-test="access-control"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="access-control"]').should('be.visible');
+    cy.get('a[data-test="access-control"]').should('have.class', 'active');
 
     // <ds-item-access-control> tag must be loaded
     cy.get('ds-item-access-control').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze for accessibility issues
     testA11y('ds-item-access-control');
@@ -120,10 +198,20 @@ describe('Edit Item > Access Control tab', () => {
 describe('Edit Item > Collection Mapper tab', () => {
 
   it('should pass accessibility tests', () => {
+    cy.get('a[data-test="mapper"]').should('be.visible');
     cy.get('a[data-test="mapper"]').click();
+
+    // Our selected tab should be both visible & active
+    cy.get('a[data-test="mapper"]').should('be.visible');
+    cy.get('a[data-test="mapper"]').should('have.class', 'active');
 
     // <ds-item-collection-mapper> tag must be loaded
     cy.get('ds-item-collection-mapper').should('be.visible');
+
+    // wait for all the tabs to be rendered on this page
+    cy.get('ds-edit-item-page ul[role="tablist"]').each(($row: HTMLUListElement) => {
+      cy.wrap($row).find('a[role="tab"]').should('be.visible');
+    });
 
     // Analyze entire page for accessibility issues
     testA11y('ds-item-collection-mapper');

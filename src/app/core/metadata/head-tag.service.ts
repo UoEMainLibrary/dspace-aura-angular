@@ -50,6 +50,7 @@ import { coreSelector } from '../core.selectors';
 import { CoreState } from '../core-state.model';
 import { BundleDataService } from '../data/bundle-data.service';
 import { AuthorizationDataService } from '../data/feature-authorization/authorization-data.service';
+import { FindListOptions } from '../data/find-list-options.model';
 import { PaginatedList } from '../data/paginated-list.model';
 import { RemoteData } from '../data/remote-data';
 import { RootDataService } from '../data/root-data.service';
@@ -172,6 +173,8 @@ export class HeadTagService {
 
   protected setDSOMetaTags(): void {
 
+    this.setNoIndexTag();
+
     this.setTitleTag();
     this.setDescriptionTag();
 
@@ -185,6 +188,7 @@ export class HeadTagService {
     this.setCitationKeywordsTag();
 
     this.setCitationAbstractUrlTag();
+    this.setCitationDoiTag();
     this.setCitationPdfUrlTag();
     this.setCitationPublisherTag();
 
@@ -197,7 +201,6 @@ export class HeadTagService {
     // this.setCitationIssueTag();
     // this.setCitationFirstPageTag();
     // this.setCitationLastPageTag();
-    // this.setCitationDOITag();
     // this.setCitationPMIDTag();
 
     // this.setCitationFullTextTag();
@@ -207,6 +210,15 @@ export class HeadTagService {
     // this.setCitationPatentCountryTag();
     // this.setCitationPatentNumberTag();
 
+  }
+
+  /**
+   * Add <meta name="robots" content="noindex">  to the <head> if non-discoverable item
+   */
+  protected setNoIndexTag(): void {
+    if (this.currentObject.value instanceof Item && this.currentObject.value.isDiscoverable === false) {
+      this.addMetaTag('robots', 'noindex');
+    }
   }
 
   /**
@@ -312,9 +324,21 @@ export class HeadTagService {
     if (this.currentObject.value instanceof Item) {
       let url = this.getMetaTagValue('dc.identifier.uri');
       if (hasNoValue(url)) {
-        url = new URLCombiner(this.hardRedirectService.getCurrentOrigin(), this.router.url).toString();
+        url = new URLCombiner(this.hardRedirectService.getBaseUrl(), this.router.url).toString();
       }
       this.addMetaTag('citation_abstract_html_url', url);
+    }
+  }
+
+  /**
+   * Add <meta name="citation_doi" ... >  to the <head>
+   */
+  protected setCitationDoiTag(): void {
+    if (this.currentObject.value instanceof Item) {
+      const doi = this.getMetaTagValue('dc.identifier.doi');
+      if (hasValue(doi)) {
+        this.addMetaTag('citation_doi', doi);
+      }
     }
   }
 
@@ -331,6 +355,7 @@ export class HeadTagService {
         'ORIGINAL',
         true,
         true,
+        new FindListOptions(),
         followLink('primaryBitstream'),
         followLink('bitstreams', {
           findListOptions: {
@@ -382,7 +407,7 @@ export class HeadTagService {
         // Use the found link to set the <meta> tag
         this.addMetaTag(
           'citation_pdf_url',
-          new URLCombiner(this.hardRedirectService.getCurrentOrigin(), link).toString(),
+          new URLCombiner(this.hardRedirectService.getBaseUrl(), link).toString(),
         );
       });
     }
